@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Фильмы</title>
+    <link rel="shortcut icon" href="resourses/favicon.png" type="image/png" />
+
+    <link rel="stylesheet" href="reset.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__wrap">
+          <div class="titles">
+            <p class="title">список фильмов</p>
+            <p class="title">2023</p>
+          </div>
+          <h1>Посмотреть</h1>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="container">
+
+        <div class="content-wrap">
+
+          <form class="js-form form">
+            <div class="add__wrap">
+              <input
+                  class="js-add__input add__input"
+                  type="text"
+                  placeholder="Добавить фильм"
+                />
+                <button type="submit" class="js-add__btn add__btn">
+                  <img class="arrow" src="arrow.png"
+                  alt="Стрелка для кнопки">
+            </div>
+          </form>
+
+            <div class="films__wrap">
+              <ul class="js-films films">
+                <!-- <li class="js-film film">
+                   
+                      <input class="js-film__checkbox film__checkbox" >
+                      <p class="film__text">Великий Гэтсби</p>
+                      <button class="close-btn" ></button>
+                   
+                </li> -->
+              </ul>
+            </div>
+
+        </div>
+        
+      </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
