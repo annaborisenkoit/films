@@ -6,7 +6,10 @@ const filmAddInputNode = document.querySelector('.js-add__input');
 const newFilmBtnNode = document.querySelector('.js-add__btn');
 const filmsNode = document.querySelector('.js-films');
 
+//добавление фильма
 addFormNode.addEventListener('submit', addFilm);
+
+//удаление фильма
 
 function addFilm(event) {
   //отменяем перезагрузку страницы - отправку формы
