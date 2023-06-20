@@ -95,7 +95,10 @@ h2 {
   height: 62px;
   border: none;
   border-radius: 50%;
-  background: #6532f8;
+  background: url(arrow.png);
+  background-color: #6532f8;
+  background-position: 50%;
+  background-repeat: no-repeat;
   cursor: pointer;
 }
 
@@ -196,11 +199,7 @@ h2 {
   .add__btn {
     width: 50px;
     height: 50px;
-  }
-
-  .arrow {
-    max-width: 60%;
-    height: auto;
+    background-size: 50%;
   }
 }
 
