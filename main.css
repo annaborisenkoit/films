@@ -118,7 +118,7 @@ h2 {
   background-color: #3a3939;
   border: 1px solid #232323;
   border-radius: 10px;
-  cursor: default;
+  cursor: pointer;
 }
 
 .film__checkbox {
