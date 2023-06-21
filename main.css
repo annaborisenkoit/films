@@ -137,6 +137,7 @@ h2 {
   line-height: 23px;
   color: #f3f6f9;
   letter-spacing: -0.02em;
+  opacity: 0.5;
 }
 
 .close-btn {
