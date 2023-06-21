@@ -121,7 +121,12 @@ h2 {
   cursor: pointer;
 }
 
+.film__checkbox:checked {
+  background: #6532f8;
+}
+
 .film__checkbox {
+  appearance: none;
   width: 23px;
   height: 23px;
   margin-left: 20px;

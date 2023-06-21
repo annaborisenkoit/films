@@ -27,7 +27,7 @@ function addFilm(event) {
 
   const filmHTML = `<li class="js-film film">
                    
-                      <input class="js-film__checkbox film__checkbox" data-action="done">
+                      <input type="checkbox"class="js-film__checkbox film__checkbox" data-action="done">
                       <p class="film__text">${filmTitle}</p>
                       <button class="close-btn" data-action="delete"></button>
                    
@@ -57,6 +57,5 @@ function viewedFilm(event) {
   if (event.target.dataset.action === 'done') {
     const parentNode = event.target.closest('.film');
     parentNode.classList.toggle('checked');
-    console.log(parentNode);
   }
 }
