@@ -10,6 +10,7 @@ const filmsNode = document.querySelector('.js-films');
 addFormNode.addEventListener('submit', addFilm);
 
 //удаление фильма
+filmsNode.addEventListener('click', deleteFilm);
 
 function addFilm(event) {
   //отменяем перезагрузку страницы - отправку формы
@@ -24,7 +25,7 @@ function addFilm(event) {
                    
                       <input class="js-film__checkbox film__checkbox" >
                       <p class="film__text">${filmTitle}</p>
-                      <button class="close-btn" ></button>
+                      <button class="close-btn" data-action="delete"></button>
                    
                 </li>`;
 
@@ -35,4 +36,15 @@ function addFilm(event) {
   filmAddInputNode.value = '';
   //возвращаем курсор в инпут
   filmAddInputNode.focus();
+}
+
+function deleteFilm(event) {
+  //проверяем, что клик был по кнопке удаления
+  console.log(event.target);
+
+  if (event.target.dataset.action === 'delete') {
+    const parentNode = event.target.closest('.film');
+
+    parentNode.remove();
+  }
 }
