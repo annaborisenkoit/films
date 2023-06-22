@@ -21,7 +21,14 @@ function addFilm(event) {
   event.preventDefault();
 
   //достаем текст из поля ввода
-  const filmTitle = filmAddInputNode.value;
+  //обрезаем пробелы - trim
+  const filmTitle = filmAddInputNode.value.trim();
+
+  //проверяем, не пустой ли инпут
+  if (!filmTitle) {
+    alert('Необходимо ввести название фильма');
+    return;
+  }
 
   //формируем разметку для нового фильма
 
