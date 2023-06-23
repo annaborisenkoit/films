@@ -8,6 +8,14 @@ const filmsNode = document.querySelector('.js-films');
 
 let films = [];
 
+if (localStorage.getItem('films')) {
+  films = JSON.parse(localStorage.getItem('films'));
+}
+
+films.forEach(function (film) {
+  renderFilm(film);
+});
+
 //добавление фильма
 addFormNode.addEventListener('submit', addFilm);
 
@@ -26,6 +34,12 @@ function addFilm(event) {
   //обрезаем пробелы - trim
   const filmTitle = filmAddInputNode.value.trim();
 
+  //проверяем, не пустой ли инпут
+  if (!filmTitle) {
+    alert('Необходимо ввести название фильма');
+    return;
+  }
+
   //формируем объект для LS
   const newFilm = {
     id: Date.now(),
@@ -36,26 +50,9 @@ function addFilm(event) {
   //добавляем новый фильм (объект) в массив с фильмами (для LS)
   films.push(newFilm);
 
-  //формируем css класс - тернарный оператор
-  const cssClass = newFilm.done ? 'checked' : '';
+  saveToLocalStorage();
 
-  //проверяем, не пустой ли инпут
-  if (!filmTitle) {
-    alert('Необходимо ввести название фильма');
-    return;
-  }
-
-  //формируем разметку для нового фильма
-  const filmHTML = `<li id="${newFilm.id}" class="js-film film ${cssClass}">
-                   
-                      <input type="checkbox"class="js-film__checkbox film__checkbox" data-action="done">
-                      <p class="film__text">${newFilm.text}</p>
-                      <button class="close-btn" data-action="delete"></button>
-                   
-                </li>`;
-
-  //добавляем фильм на страницу
-  filmsNode.insertAdjacentHTML('beforeend', filmHTML);
+  renderFilm(newFilm);
 
   //очищаем инпут
   filmAddInputNode.value = '';
@@ -75,6 +72,8 @@ function deleteFilm(event) {
     //отфильтруем массив, чтобы новый фильм в него не попал, который - false
     //каждый элемент массива обозначим как film
     films = films.filter((film) => film.id !== id);
+
+    saveToLocalStorage();
 
     //удаляем фильм из разметки
     parentNode.remove();
@@ -97,6 +96,29 @@ function viewedFilm(event) {
 
     film.done = !film.done;
 
+    saveToLocalStorage();
+
     parentNode.classList.toggle('checked');
   }
+}
+
+function saveToLocalStorage() {
+  localStorage.setItem('films', JSON.stringify(films));
+}
+
+function renderFilm(film) {
+  //формируем css класс - тернарный оператор
+  const cssClass = film.done ? 'checked' : '';
+
+  //формируем разметку для нового фильма
+  const filmHTML = `<li id="${film.id}" class="js-film film ${cssClass}">
+                   
+                      <input type="checkbox"class="js-film__checkbox film__checkbox" data-action="done">
+                      <p class="film__text">${film.text}</p>
+                      <button class="close-btn" data-action="delete"></button>
+                   
+                </li>`;
+
+  //добавляем фильм на страницу
+  filmsNode.insertAdjacentHTML('beforeend', filmHTML);
 }
