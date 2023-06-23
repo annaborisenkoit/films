@@ -112,8 +112,9 @@ function renderFilm(film) {
 
   //формируем разметку для нового фильма
   const filmHTML = `<li id="${film.id}" class="js-film film ${cssClass}">
-                   
+                   <div class="checkbox-wrap">
                       <input type="checkbox"class="js-film__checkbox film__checkbox" data-action="done">
+                      </div>
                       <p class="film__text">${film.text}</p>
                       <button class="close-btn" data-action="delete"></button>
                    
