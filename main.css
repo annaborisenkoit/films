@@ -181,7 +181,7 @@ h2 {
 
 @media (max-width: 767px) {
   .header__wrap {
-    padding: 80px 12px 45px 12px;
+    padding: 30px 12px 30px 12px;
   }
 
   .title {
